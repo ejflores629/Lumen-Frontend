@@ -2,9 +2,12 @@ import SwiftUI
 
 // MARK: - Streak Section (Corregido)
 struct StreakSectionView: View {
-    // CORREGIDO: Usa el modelo de Dominio "Racha"
     let streak: Racha?
-    let isLoading: Bool
+        
+        // La carga ahora depende de si 'streak' es nulo
+        var isLoading: Bool {
+            return streak == nil
+        }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
