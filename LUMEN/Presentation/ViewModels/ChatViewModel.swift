@@ -16,7 +16,6 @@ class ChatViewModel: ObservableObject {
     private let chatRepository: ChatRepository
     private let authService: AuthService
     
-    private let messagesKey = "chatMessages"
     
     init(chatRepository: ChatRepository, authService: AuthService) {
         self.chatRepository = chatRepository
@@ -26,28 +25,24 @@ class ChatViewModel: ObservableObject {
     }
     
     private func loadMessages() {
-        guard let data = UserDefaults.standard.data(forKey: messagesKey),
-              let savedMessages = try? JSONDecoder().decode([Message].self, from: data) else {
-            
-            // Si no hay nada guardado, añadimos el mensaje inicial
-            messages.append(
+        if let data = UserDefaults.standard.data(forKey: ChatStorage.messagesKey),
+           let savedMessages = try? JSONDecoder().decode([Message].self, from: data) {
+            self.messages = savedMessages
+        } else {
+            messages = [
                 Message(
                     id: UUID(),
                     text: "¡Hola! Soy Lumen, tu asistente de bienestar. ¿Cómo puedo ayudarte hoy?",
                     sender: .ai,
                     timestamp: Date()
                 )
-            )
-            return
+            ]
         }
-        
-        // Si se cargaron mensajes, los asignamos
-        self.messages = savedMessages
     }
     
     private func saveMessages() {
         if let data = try? JSONEncoder().encode(messages) {
-            UserDefaults.standard.set(data, forKey: messagesKey)
+            UserDefaults.standard.set(data, forKey: ChatStorage.messagesKey)
         }
     }
     

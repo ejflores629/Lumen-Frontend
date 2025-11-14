@@ -54,5 +54,6 @@ class AuthService: ObservableObject {
     func logout() {
         self.token = nil
         self.usuario = nil
-    }
+        
+        UserDefaults.standard.removeObject(forKey: ChatStorage.messagesKey)    }
 }

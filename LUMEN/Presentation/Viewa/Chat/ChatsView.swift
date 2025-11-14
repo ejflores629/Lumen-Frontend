@@ -22,7 +22,7 @@ struct ChatView: View {
                                 }
                             }
                         }
-                }
+                }.frame(maxHeight: .infinity)
                 
                 ChatInputView(
                     input: $vm.input,

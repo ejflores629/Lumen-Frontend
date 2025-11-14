@@ -28,6 +28,7 @@ struct Step2View: View {
                             .stroke(AppColors.Light.cardBorder, lineWidth: 1)
                     )
                     .scrollContentBackground(.hidden)
+                    .foregroundColor(AppColors.Light.text)
                     .onChange(of: note) { _, newValue in
                         noteUpdater(newValue)
                     }

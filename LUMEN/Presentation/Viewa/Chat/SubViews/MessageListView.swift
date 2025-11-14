@@ -2,12 +2,13 @@ import SwiftUI
 
 struct MessagesListView: View {
     let messages: [Message]
-    // ... (Tu código)
     var body: some View {
         List(messages) { message in
             MessageBubble(message: message)
+                .padding(.vertical, 8)
+                 .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 16, trailing: 0))
                 .listRowBackground(AppColors.Light.backgroundSecondary)
                 .id(message.id)
         }

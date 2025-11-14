@@ -30,12 +30,10 @@ class ApiEmocionRepository: ApiService, EmocionRepository {
 
         // Decodificamos la nueva respuesta EmocionConIA
         // Tu doc dice que esta respuesta NO usa snake_case
-        let emocionConIA = try JSONDecoder().decode(EmocionConIA.self, from: data)
+        let emocionConIA = try snakeCaseDecoder.decode(EmocionConIA.self, from: data)
         return emocionConIA
     }
     
-    // --- INICIO DE LA CORRECCIÓN ---
-    // Faltaba el cuerpo completo de esta función
     
     func obtenerHistorialEmociones(token: String) async throws -> [APIEmocion] {
         
