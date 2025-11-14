@@ -21,8 +21,7 @@ struct LoginView: View {
                 
                 Text(vm.modo == .login ? "Inicia sesión para continuar" : "Únete a Lumen para tu bienestar")
                     .font(.system(size: 16))
-                    .foregroundColor(AppColors.Light.textSecondary)
-
+                    .foregroundColor(AppColors.Light.text)
                 // Campos de Texto
                 VStack(spacing: 16) {
                     TextField("Correo Electrónico", text: $vm.correo)
@@ -31,14 +30,14 @@ struct LoginView: View {
                         .cornerRadius(12)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
-                    
+                        .foregroundColor(AppColors.Light.text)
                     if vm.modo == .registro {
                         TextField("Tu Nombre", text: $vm.nombre)
                             .padding(16)
                             .background(AppColors.Light.background)
                             .cornerRadius(12)
                             .textInputAutocapitalization(.words)
-                    }
+                            .foregroundColor(AppColors.Light.text)                    }
                 }
                 
                 // Mensaje de Error

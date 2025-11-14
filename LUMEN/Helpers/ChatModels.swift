@@ -1,14 +1,15 @@
-/// MARK: - Helpers/ChatModels.swift (Stubs para ChatSubViews)
+// MARK: - Helpers/ChatModels.swift (Stubs para ChatSubViews)
 import Foundation
 
 // Stubs para que ChatSubViews compile
-enum Sender {
+enum Sender: Codable { // <-- AÑADIR ESTO
     case user, ai
 }
 
-struct Message: Identifiable {
-    let id = UUID()
+struct Message: Identifiable, Codable {
+    let id: UUID
     let text: String
     let sender: Sender
     let timestamp: Date
+    
 }

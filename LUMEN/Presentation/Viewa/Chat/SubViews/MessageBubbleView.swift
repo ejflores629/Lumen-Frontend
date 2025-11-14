@@ -25,7 +25,8 @@ struct MessageBubble: View {
                         .font(.system(size: 15))
                         .foregroundColor(isUser ? AppColors.Light.background : AppColors.Light.text)
                         .lineSpacing(4)
-                    Text(formattedTime(date: message.timestamp))
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true);                    Text(formattedTime(date: message.timestamp))
                         .font(.system(size: 11))
                         .foregroundColor(isUser ? AppColors.Light.background.opacity(0.7) : AppColors.Light.textTertiary.opacity(0.8))
                 }

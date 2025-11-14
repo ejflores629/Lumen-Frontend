@@ -13,32 +13,59 @@ struct CustomTabBar: View {
             HStack(spacing: 0) {
                 
                 // Botón "Hoy"
-                TabBarButton(
-                    iconName: "sun.max",
-                    iconFilled: "sun.max.fill",
-                    label: "Hoy",
-                    isSelected: selectedTab == .hoy,
-                    action: {
-                        selectedTab = .hoy
-                    }
-                )
-                .frame(maxWidth: .infinity) // Ocupa 1/3 del espacio
+                                TabBarButton(
+                                    iconName: "sun.max",
+                                    iconFilled: "sun.max.fill",
+                                    label: "Hoy",
+                                    isSelected: selectedTab == .hoy,
+                                    action: {
+                                        selectedTab = .hoy
+                                    }
+                                )
+                                .frame(maxWidth: .infinity) // Ocupa 1/5
 
-                // Espacio para el botón central
-                Spacer()
-                    .frame(maxWidth: .infinity) // Ocupa 1/3 del espacio
+                                
+                                // Botón "Historial"
+                                TabBarButton(
+                                    iconName: "calendar", // (Icono sugerido)
+                                    iconFilled: "calendar", // (Icono sugerido)
+                                    label: "Historial",
+                                    isSelected: selectedTab == .historial,
+                                    action: {
+                                        selectedTab = .historial
+                                    }
+                                )
+                                .frame(maxWidth: .infinity) // Ocupa 1/5
 
-                // Botón "Asistente"
-                TabBarButton(
-                    iconName: "message",
-                    iconFilled: "message.fill",
-                    label: "Asistente",
-                    isSelected: selectedTab == .asistente,
-                    action: {
-                        selectedTab = .asistente
-                    }
-                )
-                .frame(maxWidth: .infinity) // Ocupa 1/3 del espacio
+
+                                // Espacio para el botón central
+                                Spacer()
+                                    .frame(maxWidth: .infinity) // Ocupa 1/5
+
+                                // Botón "Asistente"
+                                TabBarButton(
+                                    iconName: "message",
+                                    iconFilled: "message.fill",
+                                    label: "Asistente",
+                                    isSelected: selectedTab == .asistente,
+                                    action: {
+                                        selectedTab = .asistente
+                                    }
+                                )
+                                .frame(maxWidth: .infinity) // Ocupa 1/5
+
+
+                                // Botón "Perfil" (Ya que también faltaba)
+                                TabBarButton(
+                                    iconName: "person", // (Icono sugerido)
+                                    iconFilled: "person.fill", // (Icono sugerido)
+                                    label: "Perfil",
+                                    isSelected: selectedTab == .perfil,
+                                    action: {
+                                        selectedTab = .perfil
+                                    }
+                                )
+                                .frame(maxWidth: .infinity) //
             }
             .padding(.horizontal, 24)
             .frame(height: 50)
